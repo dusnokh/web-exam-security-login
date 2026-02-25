@@ -6,6 +6,9 @@ import { fileURLToPath } from "url";
 
 import { findUserByEmail } from "./services/userStore.js";
 
+import { requireAuth } from "./middleware/requireAuth.js";
+import { requireRole } from "./middleware/requireRole.js";
+
 const app = express();
 const PORT = 3000;
 
@@ -82,16 +85,18 @@ app.post("/login", async (req, res) => {
 /**
  * GET /dashboard -only checks login for now
  */
-app.get("/dashboard", (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).send("Du skal være logget ind for at se dashboard.");
-  }
-
+app.get("/dashboard", requireAuth, (req, res) => {
   const { email, role } = req.session.user;
 
   res.send(`
     <h1>Dashboard</h1>
     <p>Du er logget ind som <strong>${email}</strong> med rollen <strong>${role}</strong>.</p>
+
+    <ul>
+      <li><a href="/read">Læs-side</a></li>
+      <li><a href="/edit">Redigér-side</a></li>
+      <li><a href="/system">Systemopsætning</a></li>
+    </ul>
 
     <form method="POST" action="/logout">
       <button type="submit">Log ud</button>
