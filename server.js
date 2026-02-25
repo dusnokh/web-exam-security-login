@@ -83,7 +83,7 @@ app.post("/login", async (req, res) => {
 });
 
 /**
- * GET /dashboard -only checks login for now
+ * GET /dashboard
  */
 app.get("/dashboard", requireAuth, (req, res) => {
   const { email, role } = req.session.user;
@@ -103,6 +103,32 @@ app.get("/dashboard", requireAuth, (req, res) => {
     </form>
 
     <p><a href="/login.html">Tilbage til login</a></p>
+  `);
+});
+// READ: viewer/editor/admin
+app.get("/read", requireAuth, requireRole("viewer", "editor", "admin"), (req, res) => {
+  res.send(`
+    <h1>Læs-side</h1>
+    <p>Du har adgang til at læse indhold.</p>
+    <p><a href="/dashboard">Tilbage til dashboard</a></p>
+  `);
+});
+
+// EDIT: editor/admin
+app.get("/edit", requireAuth, requireRole("editor", "admin"), (req, res) => {
+  res.send(`
+    <h1>Redigér-side</h1>
+    <p>Du har adgang til at skrive og ændre indhold.</p>
+    <p><a href="/dashboard">Tilbage til dashboard</a></p>
+  `);
+});
+
+// SYSTEM: admin only
+app.get("/system", requireAuth, requireRole("admin"), (req, res) => {
+  res.send(`
+    <h1>Systemopsætning</h1>
+    <p>Kun admin har adgang til denne side.</p>
+    <p><a href="/dashboard">Tilbage til dashboard</a></p>
   `);
 });
 
