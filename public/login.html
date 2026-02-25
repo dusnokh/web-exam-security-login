@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+
+    <form method="POST" action="/login">
+      <label>
+        Email:
+        <input type="email" name="email" required />
+      </label>
+      <br /><br />
+
+      <label>
+        Adgangskode:
+        <input type="password" name="password" required />
+      </label>
+      <br /><br />
+
+      <button type="submit">Log ind</button>
+    </form>
+
+    <p><a href="/dashboard">Gå til dashboard</a></p>
+  </body>
+</html>
