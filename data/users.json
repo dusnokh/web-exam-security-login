@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "email": "admin@site.dk",
+    "role": "admin",
+    "passwordHash": "$2b$12$5ucVeRCpocE52WiDtOPo5OtpTg7eZcJsDt7HWqdFQIueLRQd7TPCq"
+  },
+  {
+    "id": 2,
+    "email": "editor@site.dk",
+    "role": "editor",
+    "passwordHash": "$2b$12$11aPqPeVtfUwRTcH/ALYSO.q1Ep/9l/ldux/Tc0nxmrp3gC3Bhv6C"
+  },
+  {
+    "id": 3,
+    "email": "viewer@site.dk",
+    "role": "viewer",
+    "passwordHash": "$2b$12$P4Aef2CoFaIcdZaQ8bm9pOPsOaN/ZpIES2.Bl6OqlMAIFs9AEYBzW"
+  }
+]

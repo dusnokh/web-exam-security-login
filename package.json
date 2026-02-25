@@ -1,0 +1,28 @@
+{
+  "name": "web-exam-security-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module", 
+  "scripts": {
+  "dev": "node server.js",
+  "hash": "node scripts/hashPassword.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dusnokh/web-exam-security-login.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dusnokh/web-exam-security-login/issues"
+  },
+  "homepage": "https://github.com/dusnokh/web-exam-security-login#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  }
+}
