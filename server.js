@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import session from "express-session";
 import bcrypt from "bcrypt";
@@ -8,6 +9,10 @@ import { findUserByEmail } from "./services/userStore.js";
 
 import { requireAuth } from "./middleware/requireAuth.js";
 import { requireRole } from "./middleware/requireRole.js";
+
+if (!process.env.SESSION_SECRET) {
+  throw new Error("SESSION_SECRET missing in .env");
+}
 
 const app = express();
 const PORT = 3000;
@@ -22,7 +27,7 @@ app.use(express.json());
 // sessions
 app.use(
   session({
-    secret: "exam-secret-change-me",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {

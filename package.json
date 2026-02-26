@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module", 
+  "type": "module",
   "scripts": {
-  "dev": "node server.js",
-  "hash": "node scripts/hashPassword.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js",
+    "hash": "node scripts/hashPassword.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/dusnokh/web-exam-security-login#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "express-session": "^1.19.0"
   }
